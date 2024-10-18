@@ -1,10 +1,12 @@
-import UseSum from './UseSum';
+import React from 'react';
+import AutoFocusAndClick from './AutoFocusAndClick';
 
-const App = () => {
-  const num1 = 5;
-  const num2 = 10;
-
-  UseSum(num1, num2);
-};
+function App() {
+  return (
+    <div className="App">
+      <AutoFocusAndClick />
+    </div>
+  );
+}
 
 export default App;
