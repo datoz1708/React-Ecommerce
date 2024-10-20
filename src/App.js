@@ -4,11 +4,11 @@ import axios from 'axios';
 const App = () => {
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/todos')
-    .then(Response => {
-      console.log(Response.data);
+    .then(response => {
+      console.log(response.data);
     })
     .catch(error => {
-      console.error('Error fetching data:', error);
+      console.error(error);
     });
   }, []);
 
