@@ -1,27 +1,17 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Home from './Components/Home';
-import Profile from './Components/Profile';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
-        </nav>
+const App = () => {
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/todos')
+    .then(Response => {
+      console.log(Response.data);
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+  }, []);
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/profile/:firstName/:lastName" element={<Profile />} />
-        </Routes>
-      </div>
-    </Router>
-  );
-}
+};
 
 export default App;
